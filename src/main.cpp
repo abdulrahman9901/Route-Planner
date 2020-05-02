@@ -54,7 +54,11 @@ int main(int argc, const char **argv)
 
      floats start_x, start_y, end_x, end_y;
      std::cin>>start_x>>start_y>>end_x>>end_y;
-
+     for (float coord : {start_x, start_y, end_x, end_y}) {
+         // Make sure coordinates are in the admissible range [0; 100]
+         if (coord < 0 || coord > 100) {
+             std::cout << "Error: coordinates must be in [0; 100]." << "\n";
+             break;
     // Build Model.
     RouteModel model{osm_data};
 
